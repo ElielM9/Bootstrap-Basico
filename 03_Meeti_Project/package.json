@@ -1,0 +1,25 @@
+{
+  "name": "meeti-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "minify:html": "htmlmin --collapseWhitespace true --removeComments true src/views/index.html -o public/index.html",
+    "compile:sass": "sass --watch src/scss:public/styles",
+    "clean": "purgecss --css public/styles/styles.css --content public/**/*.html --output public/styles/styles.css",
+    "optimize:img": "imagemin src/assets/* --out-dir=public/assets/img",
+    "minify:js": "terser src/js/*.js -o public/js/main.min.js --compress --mangle",
+    "start": "npm run minify:html && npm run clean && npm run optimize:img && npm run minify:js"
+  },
+  "author": "Eliel Martinez",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "htmlmin": "^0.0.7",
+    "imagemin-cli": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "sass": "^1.72.0",
+    "terser": "^5.46.0"
+  }
+}
